@@ -17,6 +17,8 @@
 
 
 
+  <meta name="description" content="Hello World"/>
+
 
 
 
@@ -38,7 +40,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/"/>
+<link rel="canonical" href="http://yoursite.com/2017/10/30/hello-world/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -83,7 +85,7 @@
 
 
 
-    <title> welcome </title>
+    <title> Hello World - welcome </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -158,75 +160,12 @@
         <div class="content-wrapper">
           <div id="content" class="content">
             
-  <section id="posts" class="posts">
-    
-      
+  
   <article class="post">
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2017/10/30/使用axios时跨域失败的一些处理方法笔记/">使用axios时跨域失败的一些处理方法笔记</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-10-30
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/10/30/使用axios时跨域失败的一些处理方法笔记/"
-             data-title="使用axios时跨域失败的一些处理方法笔记">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>一开始需要前后端分离时经常面对跨域失败这个问题，出现问题的原因主要是因为服务端和客户端不在同一个域中，实现跨域的方法有几种，类似于JSONP，iframe，CORS资源共享几种方法，前面两种都有自身的局限性，只能使用get访问请求，所以使用比较多的通过CORS资源共享来实现跨域。</p>
-<p>有关CORS资源共享的详细介绍，可以参考<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="external">阮一峰的博客</a>，里面有较为详细的介绍。因为之前都是使用vue的时候遇到的，所以通过axios为ajax的框架，nodejs为后台代码简单贴一下代码。</p>
-<h2 id="前端的设置"><a href="#前端的设置" class="headerlink" title="前端的设置"></a>前端的设置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//url表示地址，data是一个json对象的字符串</div><div class="line">//需要特别注意的是axios会自动验证data的类型，此处data是字符串，所以contentType为application/x-www-form-urlencoded</div><div class="line">axios.post(url, data).<span class="keyword">then</span>(res =&gt; &#123;</div><div class="line">	//成功的回调</div><div class="line">&#125;).catch(err =&gt; &#123;</div><div class="line">	//错误的回调</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>仅仅针对最简单的post请求，前端不需要设置什么</p>
-<h2 id="后端的设置"><a href="#后端的设置" class="headerlink" title="后端的设置"></a>后端的设置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">router.options(<span class="string">'/upload'</span>, <span class="keyword">function</span>* ()&#123;</div><div class="line">    this.set(<span class="string">'Access-Control-Allow-Methods'</span>, <span class="string">'POST'</span>);//允许的请求方式为POST</div><div class="line">    this.set(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'*'</span>);//允许的请求链接为所有</div><div class="line">    this.set(<span class="string">'Access-Control-Allow-Headers'</span>, <span class="string">'Content-type'</span>);//允许请求链接修改的请求头</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>根据以上设置，已经基本能实现跨域，下面就根据我所遇到的跨域失败的情况做一个简单总结</p>
-<h2 id="跨域失败问题排查"><a href="#跨域失败问题排查" class="headerlink" title="跨域失败问题排查"></a>跨域失败问题排查</h2><ul>
-<li><p>查看你的Request Method是否为OPTIONS</p>
-<p>当你的请求需要修改服务器资源时，类似于POST DELETE PUT请求，服务器为了安全，会先发送一个OPTIONS请求来确认是否安全</p>
-<p>当服务器没有允许OPTIONS请求访问，或不支持OPTIONS请求时，请求将无法进行，</p>
-</li>
-<li><p>如何避免请求时，先发送OPTIONS</p>
-<p>不使用非GET和POST的请求</p>
-<p>使用常规的三个contentType进行访问，包括（application/x-www-form-urlencoded multipart/form-data text/plain）    </p>
-</li>
-</ul>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/10/30/hello-world/">Hello World</a>
+          Hello World
         
       </h1>
 
@@ -247,14 +186,17 @@
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
 
     <div class="post-content">
       
-        
-        
-
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -264,28 +206,63 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-        
       
     </div>
 
     
+      
+      
 
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://yoursite.com">Adair</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://yoursite.com/2017/10/30/hello-world/">http://yoursite.com/2017/10/30/hello-world/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
     
 
-  </article>
-
     
-  </section>
-
-  
-  <nav class="pagination">
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/10/30/使用axios时跨域失败的一些处理方法笔记/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">使用axios时跨域失败的一些处理方法笔记</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
     
     
   </nav>
 
+      </footer>
+    
+
+  </article>
+
 
           </div>
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
       </main>
@@ -366,6 +343,8 @@
     </div>
 
     
+  
+
 
 
     
